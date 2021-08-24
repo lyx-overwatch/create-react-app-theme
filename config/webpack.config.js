@@ -557,7 +557,6 @@ module.exports = function (webpackEnv) {
                     sourceMap: true,
                     lessOptions: {
                       javascriptEnabled: true,
-                      modifyVars: {},
                     },
                   },
                 },
