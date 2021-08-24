@@ -73,8 +73,8 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start": "node scripts/createTheme.js && node scripts/start.js",
+    "build": "node scripts/createTheme.js && node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -95,7 +95,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "antd-theme-generator": "^1.2.8"
+  },
   "jest": {
     "roots": [
       "<rootDir>/src"

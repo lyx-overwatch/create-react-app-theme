@@ -29,12 +29,6 @@ const postcssNormalize = require("postcss-normalize");
 
 const appPackageJson = require(paths.appPackageJson);
 
-const curTheme = require("../src/theme/css-variable");
-
-console.log(curTheme(), "c");
-
-return;
-
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
 
@@ -68,7 +62,7 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const lessRegex = /\.less$/;
-const lessModuleRegex = /node_modules/;
+const lessModuleRegex = /\.module\.less/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === "true") {
@@ -564,6 +558,26 @@ module.exports = function (webpackEnv) {
                     lessOptions: {
                       javascriptEnabled: true,
                       modifyVars: {},
+                    },
+                  },
+                },
+              ],
+              sideEffects: true,
+            },
+            {
+              test: lessModuleRegex,
+              exclude: /node_modules/,
+              use: [
+                "style-loader",
+                {
+                  loader: "css-loader",
+                },
+                {
+                  loader: "less-loader",
+                  options: {
+                    sourceMap: true,
+                    lessOptions: {
+                      javascriptEnabled: true,
                     },
                   },
                 },

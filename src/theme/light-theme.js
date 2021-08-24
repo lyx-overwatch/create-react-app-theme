@@ -1,12 +1,9 @@
 const lightColorMap = {
-  "--a": "#ffccc7",
-  "--b": "#fa541c",
-  "--c": "#fa8c16",
-  antdTheme: {
-    "@color-primary": "#ffccc7",
-  },
+  "@primary-color": "#1890ff",
+  "@link-color": "#1890ff",
+  "@success-color": "#52c41a",
+  "@warning-color": "#faad14",
+  "@error-color": "#f5222d",
 };
 
-module.exports = lightColorMap;
-
-// export default lightColorMap;
+export default lightColorMap;
