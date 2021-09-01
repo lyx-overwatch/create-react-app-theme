@@ -29,6 +29,7 @@ function App() {
           <Option value="2">暗色</Option>
         </Select>
         <div className={"center"}></div>
+        <div className={"center-2"}></div>
         <Button
           type="primary"
           onClick={() => {
