@@ -1,9 +1,12 @@
 const path = require("path");
 const { generateTheme } = require("antd-theme-generator");
-const lessFilePaths = require('./utils/getSelfThemeFiles');
+const { fileDirRes,fileRes } = require('./utils/getSelfThemeFiles');
 
 const options = {
-  stylesDir: path.join(__dirname, "../src/theme"), // 指定自定义less的入口目录，页面使用@primary-color等变量的class类声明都应该在这个目录下面
+  stylesDir: [
+    // path.join(path.resolve('.', './src'))
+    ...fileDirRes
+  ], // 指定自定义less的入口目录，页面使用@primary-color等变量的class类声明都应该在这个目录下面
   antDir: path.join(__dirname, "../node_modules/antd"), // antd目录
   varFile: path.join(__dirname, "../src/theme/antd-theme.less"), // antd主题变量默认值(需要覆盖antd的默认主题)设置目录
   // mainLessFile: [
@@ -11,7 +14,7 @@ const options = {
   //   path.join(__dirname, "../src/theme/home/index.less"),
   // ], // 自定义样式的目录，必须都在stylesDir里面
   mainLessFile: [
-    ...lessFilePaths
+    ...fileRes
   ], 
   themeVariables: [
     "@primary-color",

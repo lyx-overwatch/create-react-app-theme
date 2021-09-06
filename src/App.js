@@ -1,8 +1,10 @@
+import React, { useEffect } from 'react';
 import { Button, Select, message } from "antd";
 import changeColors from "./theme/css-variable";
+import _ from 'lodash'
 import "./App.less";
 import "./theme/base.less";
-import "./theme/home/index.less";
+import './styles/index.less';
 
 const { Option } = Select;
 
@@ -12,6 +14,12 @@ const themeMap = {
 };
 
 function App() {
+
+  useEffect(() => {
+    console.log(_.join(['a','b','c'], '~'));
+    return () => {}
+  }, []);
+  
   const changeTheme = (mode) => {
     changeColors(mode);
   };

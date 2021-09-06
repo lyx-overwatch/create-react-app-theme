@@ -76,6 +76,7 @@
     "dev": "node scripts/start.js",
     "start": "node scripts/createTheme.js && node scripts/start.js",
     "build": "node scripts/createTheme.js && node scripts/build.js",
+    "analy": "set ANALYZE=true && node scripts/createTheme.js && node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -98,7 +99,9 @@
     ]
   },
   "devDependencies": {
-    "antd-theme-generator": "^1.2.8"
+    "antd-theme-generator": "^1.2.8",
+    "cross-env": "^7.0.3",
+    "webpack-bundle-analyzer": "^4.4.2"
   },
   "jest": {
     "roots": [
